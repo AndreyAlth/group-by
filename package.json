@@ -14,7 +14,16 @@
     "start": "ts-node src/index.ts",
     "dev": "node src/index.ts"
   },
-  "keywords": [],
+  "keywords": [
+    "groupBy",
+    "group by",
+    "group by property",
+    "group by key",
+    "group by property path",
+    "group by nested property",
+    "group by function",
+    "group by callback"
+  ],
   "author": "andreyalth",
   "license": "ISC",
   "description": "",
