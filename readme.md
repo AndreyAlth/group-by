@@ -37,12 +37,12 @@ const users = [
 
 const grouped = groupBy(users, 'role');
 // Result:
-// {
-//   admin: [
+// Map {
+//   admin => [
 //     { name: 'Alice', role: 'admin' },
 //     { name: 'Charlie', role: 'admin' }
 //   ],
-//   user: [
+//   user => [
 //     { name: 'Bob', role: 'user' }
 //   ]
 // }
@@ -58,6 +58,16 @@ const products = [
 ];
 
 const grouped = groupBy(products, 'category.type');
+// Result:
+// Map {
+//   electronics => [
+//     { name: 'Laptop', category: { type: 'electronics' } },
+//     { name: 'Phone', category: { type: 'electronics' } }
+//   ],
+//   furniture => [
+//     { name: 'Desk', category: { type: 'furniture' } }
+//   ]
+// }
 ```
 
 ### With Custom Key Function
