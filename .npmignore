@@ -1,0 +1,23 @@
+# Source files
+src/
+*.ts
+!*.d.ts
+
+# Config files
+tsconfig.json
+nodemon.json
+.env
+.env.*
+
+# Development
+node_modules/
+.vscode/
+.idea/
+
+# Testing
+coverage/
+*.test.js
+*.spec.js
+
+# Build artifacts
+*.tsbuildinfo
