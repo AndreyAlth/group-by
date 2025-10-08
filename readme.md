@@ -73,19 +73,6 @@ const grouped = groupBy(numbers, (n) => n % 2 === 0 ? 'even' : 'odd');
 // }
 ```
 
-## 📖 API
-
-### `groupBy<T>(array: T[], key: string | ((item: T) => string)): Record<string, T[]>`
-
-Groups an array of items by a specified key or key function.
-
-**Parameters:**
-- `array` - The array to group
-- `key` - Either a string property name or a function that returns a grouping key
-
-**Returns:**
-- An object where keys are the group identifiers and values are arrays of items
-
 ## 🏗️ Development
 
 ```bash
