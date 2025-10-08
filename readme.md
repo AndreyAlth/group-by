@@ -1,60 +1,110 @@
-# TypeScript Starter Template
+# groupBy
 
-A clean and modern TypeScript project template with essential development tools pre-configured.
+A better function to group arrays of objects by a key. Simple, type-safe, and zero dependencies.
 
 ## 🚀 Features
 
-- TypeScript 5.x
-- Development server with hot-reload (Nodemon)
-- TypeScript Node.js execution (ts-node)
-- Pre-configured TypeScript compiler
-- Basic project structure
+- ✨ **Type-safe** - Full TypeScript support with generics
+- 🪶 **Lightweight** - Zero dependencies
+- 🎯 **Simple API** - Easy to use, intuitive interface
+- 🔧 **Flexible** - Support for nested keys and custom key functions
+- 📦 **Tree-shakeable** - ESM support for optimal bundle size
 
-## 📦 Prerequisites
+## 📦 Installation
 
-- Node.js (v14 or later)
-- npm (v7 or later) or yarn
-
-## 🛠️ Installation
-
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/yourusername/starter-template-typescript.git
-   cd starter-template-typescript
-   ```
-
-2. Install dependencies:
-   ```bash
-   npm install
-   # or
-   yarn install
-   ```
-
-## 🚦 Available Scripts
-
-- `npm run build` - Compile TypeScript to JavaScript
-- `npm start` - Run the application using ts-node
-- `npm run dev` - Run in development mode with hot-reload
-- `npm test` - Run tests (configure your test framework here)
-
-## 🏗️ Project Structure
-
-```
-starter-template-typescript/
-├── src/
-│   └── index.ts        # Application entry point
-├── dist/               # Compiled JavaScript files
-├── node_modules/       # Dependencies
-├── .gitignore          # Git ignore file
-├── package.json        # Project configuration
-└── tsconfig.json      # TypeScript configuration
+```bash
+npm install group-by
 ```
 
-## 🔧 Configuration
+or
 
-Edit `tsconfig.json` to customize TypeScript compiler options.
+```bash
+yarn add group-by
+```
+
+## 🔨 Usage
+
+### Basic Usage
+
+```typescript
+import { groupBy } from 'group-by';
+
+const users = [
+  { name: 'Alice', role: 'admin' },
+  { name: 'Bob', role: 'user' },
+  { name: 'Charlie', role: 'admin' }
+];
+
+const grouped = groupBy(users, 'role');
+// Result:
+// {
+//   admin: [
+//     { name: 'Alice', role: 'admin' },
+//     { name: 'Charlie', role: 'admin' }
+//   ],
+//   user: [
+//     { name: 'Bob', role: 'user' }
+//   ]
+// }
+```
+
+### With Nested Keys
+
+```typescript
+const products = [
+  { name: 'Laptop', category: { type: 'electronics' } },
+  { name: 'Phone', category: { type: 'electronics' } },
+  { name: 'Desk', category: { type: 'furniture' } }
+];
+
+const grouped = groupBy(products, 'category.type');
+```
+
+### With Custom Key Function
+
+```typescript
+const numbers = [1, 2, 3, 4, 5, 6];
+
+const grouped = groupBy(numbers, (n) => n % 2 === 0 ? 'even' : 'odd');
+// Result:
+// {
+//   odd: [1, 3, 5],
+//   even: [2, 4, 6]
+// }
+```
+
+## 📖 API
+
+### `groupBy<T>(array: T[], key: string | ((item: T) => string)): Record<string, T[]>`
+
+Groups an array of items by a specified key or key function.
+
+**Parameters:**
+- `array` - The array to group
+- `key` - Either a string property name or a function that returns a grouping key
+
+**Returns:**
+- An object where keys are the group identifiers and values are arrays of items
+
+## 🏗️ Development
+
+```bash
+# Install dependencies
+yarn install
+
+# Run in development mode
+yarn dev
+
+# Build the package
+yarn build
+
+# Run tests
+yarn test
+```
 
 ## 🤝 Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request.
 
 1. Fork the repository
 2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
@@ -66,6 +116,10 @@ Edit `tsconfig.json` to customize TypeScript compiler options.
 
 This project is licensed under the ISC License - see the [LICENSE](LICENSE) file for details.
 
+## 👤 Author
+
+**andreyalth**
+
 ---
 
-Made with ❤️ by [Your Name]
+Made with ❤️ using TypeScript
